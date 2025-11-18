@@ -3,168 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زياده متابعين عروض مجانيه متوفره | Instagram Style</title>
+    <title>نجمك | ارتقِ بحسابك إلى القمة في دقائق</title>
     <style>
-        /* الخطوط الأساسية والتنسيق العام */
+        /* CSS معدل لتصميم مميز */
+        :root {
+            --primary-bg: #FFFFFF; /* خلفية بيضاء ناعمة */
+            --dark-bg: #0A192F; /* أزرق ليلي عميق */
+            --accent-color: #00C2FF; /* أزرق سماوي نيون */
+            --secondary-accent-color: #A779E1; /* بنفسجي فاتح */
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --button-text-dark: var(--dark-bg);
+            --button-text-light: var(--text-light);
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fafafa; /* لون خلفية إنستاجرام الفاتح */
-            color: #262626; /* لون النص الأساسي */
+            color: var(--text-dark);
+            direction: rtl; /* للغة العربية */
             text-align: right;
-            direction: rtl;
+            background-color: var(--primary-bg);
+            line-height: 1.6;
         }
-
-        /* تنسيق الهيدر */
-        header {
-            background: linear-gradient(to right, #405DE6, #5B51D8, #833AB4, #C135A2, #E1306C, #FD1D1D, #F56040, #FFDC80); /* تدرج ألوان إنستاجرام */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .header {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--shadow-medium);
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        /* تنسيق القسم الرئيسي */<jijmhnm>
-        
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        /* تنسيق العروض (البطاقات) */
-        .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .offer-card {
-            background-color: white;
-            border: 1px solid #dbdbdb; /* حدود خفيفة */
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .offer-card h2 {
+        .logo {
             font-size: 1.8em;
-            color: #833AB4; /* لون بنفسجي مميز */
-            margin-top: 0;
-        }
-
-        .price {
-            font-size: 2.5em;
             font-weight: bold;
-            color: #E1306C; /* لون أحمر/وردي مميز */
-            margin: 10px 0;
+            color: var(--accent-color);
+            letter-spacing: 1px;
         }
-        
-        .price span {
-            font-size: 0.5em;
-            font-weight: normal;
-            color: #262626;
-        }
-
-        .offer-card p {
-            color: #8e8e8e;
-            min-height: 40px; /* لضمان تساوي ارتفاع البطاقات في حالة اختلاف الوصف */
-        }
-
-        /* تنسيق زر الطلب */
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-top: 15px;
-            background: linear-gradient(to right, #405DE6, #C135A2); /* زر متدرج */
-            color: white;
+        .nav a {
+            color: var(--text-light);
             text-decoration: none;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.3s;
+            margin-right: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a2a46 100%); /* تدرج لوني */
+            color: var(--text-light);
+            padding: 100px 5%; /* زيادة التباعد */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* لإخفاء أي عناصر تتجاوز */
+        }
+        /* تأثير النجوم المتلألئة في الخلفية (اختياري، يتطلب JS أو CSS معقد) */
+        .hero-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: radial-gradient(circle at top left, rgba(0, 194, 255, 0.1) 0%, transparent 50%),
+                         radial-gradient(circle at bottom right, rgba(167, 121, 225, 0.1) 0%, transparent 50%);
+             opacity: 0.7;
         }
 
-        .cta-button:hover {
+        .hero-section h1 {
+            font-size: 3.2em; /* حجم أكبر */
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-shadow: 0 0 15px rgba(0, 194, 255, 0.6); /* ظل نص متوهج */
+        }
+        .hero-section p {
+            font-size: 1.3em; /* حجم أكبر */
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             opacity: 0.9;
         }
-
-        /* تنسيق العرض المجاني */
-        .free-offer {
-            border: 3px dashed #405DE6; /* حدود مميزة للعرض المجاني */
+        .hero-section p.security-note {
+            color: #bbb;
+            font-size: 0.9em;
+            margin-top: 25px;
         }
-        
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--button-text-dark);
+            padding: 18px 40px; /* حجم أكبر للزر */
+            text-decoration: none;
+            border-radius: 50px; /* زر دائري الأطراف */
+            font-size: 1.2em;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 194, 255, 0.4); /* ظل للزر */
+        }
+        .cta-button:hover {
+            background-color: var(--secondary-accent-color);
+            box-shadow: 0 8px 25px rgba(167, 121, 225, 0.5);
+            transform: translateY(-3px);
+            color: var(--text-light);
+        }
+        .trust-indicators {
+            margin-top: 35px;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* تباعد بين الأيقونات */
+            flex-wrap: wrap;
+        }
+        .trust-indicators span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .trust-indicators span::before {
+            content: '✔️'; /* أيقونة بسيطة */
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+        .pricing-section {
+            padding: 80px 5%; /* زيادة التباعد */
+            text-align: center;
+            background-color: var(--primary-bg);
+        }
+        .pricing-section h2 {
+            font-size: 2.5em; /* حجم أكبر */
+            margin-bottom: 50px;
+            color: var(--dark-bg);
+            position: relative;
+        }
+        .pricing-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* تباعد أكبر بين البطاقات */
+            flex-wrap: wrap;
+        }
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0); /* تدرج خفيف للخلفية */
+            border-radius: 15px; /* حواف أكثر دائرية */
+            box-shadow: 0 10px 30px var(--shadow-light); /* ظل أكثر بروزاً */
+            padding: 40px; /* تباعد داخلي أكبر */
+            width: 320px; /* عرض أكبر للبطاقة */
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* تأثير رفع وتكبير عند التحويم */
+            box-shadow: 0 15px 40px var(--shadow-medium);
+        }
+        .card.featured {
+            border: 3px solid var(--accent-color);
+            background: linear-gradient(145deg, #ffffff, var(--primary-bg));
+            transform: scale(1.07) translateY(-15px); /* أكثر بروزاً */
+            box-shadow: 0 20px 50px rgba(0, 194, 255, 0.3);
+        }
+        .card.featured::before {
+            content: 'الأكثر شعبية ✨';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            background-color: var(--secondary-accent-color);
+            color: var(--text-light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            color: var(--dark-bg);
+            font-size: 1.8em; /* حجم أكبر */
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 3.2em; /* حجم سعر أكبر */
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            display: block;
+            line-height: 1;
+        }
+        .price span {
+            font-size: 0.4em;
+            font-weight: normal;
+            color: var(--text-dark);
+            opacity: 0.7;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        .card ul li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+        .card ul li::before {
+            content: '✔️';
+            color: var(--secondary-accent-color); /* لون الأيقونة */
+            font-weight: bold;
+            font-size: 1.1em;
+            line-height: 1;
+        }
+        .btn-order {
+            background-color: var(--dark-bg);
+            color: var(--button-text-light);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block; /* ليكون في المنتصف */
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-order:hover {
+            background-color: var(--secondary-accent-color);
+            color: var(--text-light);
+            box-shadow: 0 5px 20px rgba(167, 121, 225, 0.4);
+            transform: translateY(-2px);
+        }
+        .card.featured .btn-order {
+            background-color: var(--accent-color);
+            color: var(--button-text-dark);
+            box-shadow: 0 5px 20px rgba(0, 194, 255, 0.4);
+        }
+        .card.featured .btn-order:hover {
+            background-color: var(--secondary-accent-color);
+            color: var(--text-light);
+            box-shadow: 0 5px 25px rgba(167, 121, 225, 0.5);
+        }
+        .free-offer {
+            margin-top: 25px;
+            font-size: 1em;
+            color: var(--dark-bg);
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .how-it-works-section {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+        .how-it-works-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        .how-it-works-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .how-it-works-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .step-card {
+            background-color: #1a2a46; /* لون أغمق قليلاً */
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .step-card .icon {
+            font-size: 3em;
+            color: var(--secondary-accent-color);
+            margin-bottom: 15px;
+        }
+        .step-card h3 {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .step-card p {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 5%;
+            font-size: 0.9em;
+            border-top: 5px solid var(--accent-color); /* شريط علوي للفوتر */
+        }
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--secondary-accent-color);
+        }
+
+        /* الاستجابة لتناسب الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1.1em;
+            }
+            .nav a {
+                margin-right: 15px;
+            }
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card, .step-card {
+                width: 90%; /* عرض أكبر على الجوال */
+            }
+            .card.featured {
+                transform: scale(1.03) translateY(-10px); /* أقل بروزاً على الجوال */
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>📱خدمات زيادة المتابعين </h1>
-        <p>زياده متابعين  بواسطه موقعنا الرسمي المرخص من ® YTAE</p>
+    <header class="header">
+        <div class="logo">نجمك</div>
+        <nav class="nav">
+            <a href="#pricing">الأسعار</a>
+            <a href="/faq">الأسئلة الشائعة</a>
+            <a href="/about">من نحن</a>
+            <a href="/login">تسجيل الدخول</a>
+        </nav>
     </header>
 
-    <div class="container">
-        <h2 style="text-align: center; color: #E1306C; margin-bottom: 30px;">اختر باقتك المفضلة</h2>
+    <section class="hero-section">
+        <h1>نجمك: ارتقِ بحسابك إلى القمة في دقائق.</h1>
+        <p>خدمات متابعين وإعجابات سريعة وآمنة بأسعار لم يسبق لها مثيل.</p>
+        <p class="security-note">
+            (لتنفيذ بعض الخدمات المتميزة التي تتطلب وصولاً مباشراً لضمان أعلى جودة وسرعة، قد نحتاج إلى كلمة المرور بشكل مؤقت، مع ضمان الأمان التام والسرية المطلقة لبياناتك.)
+        </p>
+
+        <a href="#pricing" class="cta-button">ابدأ تجربتك المجانية (200 متابع الآن)</a>
         
-        <div class="offers-grid">
+        <div class="trust-indicators">
+            <span>100% أمان وخصوصية</span>
+            <span>تنفيذ فوري للطلبات</span>
+            <span>دعم فني 24/7</span>
+        </div>
+    </section>
 
-            <div class="offer-card free-offer">
-                <h2>🎁 الباقة التجريبية 🎁</h2>
-                <p>للأفراد الذين يرغبون في تجربة خدمتنا.</p>
-                <div class="price">200<span> متابع</span></div>
-                <div style="font-size: 1.5em; color: #405DE6; font-weight: bold; margin: 10px 0;">مجاني</div>
-               <a href="follow2.html" class="cta-button" style="background: #405DE6;">اطلب الآن (مجاني)</a>
-            </div>
+    <section id="pricing" class="pricing-section">
+        <h2>اكتشف باقات النمو الفوري لدينا</h2>
+        
+        <div class="pricing-cards">
             
-            <div class="offer-card free-offer">
-                <h2>⭐ الباقة الأساسية المجانية ⭐</h2>
-                <p>متابعين حقيقيين لبداية قوية لحسابك.</p>
-                <div class="price">500<span> متابع</span></div>
-                <div style="font-size: 1.5em; color: #405DE6; font-weight: bold; margin: 10px 0;">مجاني</div>
-                <a href="follow500.html" class="cta-button" style="background: #405DE6;">اطلب الآن (مجاني)</a>
-            </div>
-            
-            <div class="offer-card">
-                <h2>💰 الباقة البرونزية 💰</h2>
-                <p>زيادة متابعين سريعة واقتصادية.</p>
-                <div class="price">1000<span> متابع</span></div>
-                <div style="font-size: 1.5em; color: #E1306C; font-weight: bold; margin: 10px 0;">0.5$</div>
-                <a href="#" class="cta-button">اشترِ الآن</a>
+            <div class="card">
+                <h3>🎁 باقة التجربة المجانية</h3>
+                <div class="price">0$ <span>/ لمرة واحدة</span></div>
+                <ul>
+                    <li>200 متابع مجاناً</li>
+                    <li>جودة عالية وموثوقة</li>
+                    <li>تنفيذ فوري خلال دقائق</li>
+                    <li>لا يتطلب الدفع</li>
+                </ul>
+                <a href="/follow500.html" class="btn-order">جرب الآن!</a>
             </div>
 
-            <div class="offer-card">
-                <h2>🚀 الباقة الذهبية🚀</h2>
-                <p>الخيار الأمثل للنمو السريع والتأثير.</p>
-                <div class="price">5000<span> متابع</span></div>
-                <div style="font-size: 1.5em; color: #E1306C; font-weight: bold; margin: 10px 0;">1.2$</div>
-                <a href="#" class="cta-button">اشترِ الآن</a>
+            <div class="card">
+                <h3>🥉 باقة النمو الأولي</h3>
+                <div class="price">$0.90 <span>/ 1000 متابع</span></div>
+                <ul>
+                    <li>1000 متابع عالي الجودة</li>
+                    <li>أرخص سعر في السوق</li>
+                    <li>تنفيذ سريع ومضمون</li>
+                    <li>ضمان 30 يوماً ضد النقص</li>
+                </ul>
+                <a href="/order?plan=silver" class="btn-order">اطلب الآن</a>
+                <div class="free-offer">متوفر أيضاً: 500 متابع بـ $0.30</div>
+            </div>
+
+            <div class="card featured">
+                <h3>🥇 الباقة الذهبية</h3>
+                <div class="price">$1.05 <span>/ 2000 متابع</span></div>
+                <ul>
+                    <li>2000 متابع ممتاز وحقيقي</li>
+                    <li>أفضل قيمة مقابل السعر</li>
+                    <li>تنفيذ فائق السرعة والأمان</li>
+                    <li>ضمان 60 يوماً واسترداد المال</li>
+                </ul>
+                <a href="/order?plan=gold" class="btn-order">اطلب الآن</a>
             </div>
 
         </div>
-        
-    </div>
+    </section>
+
+    <section class="how-it-works-section">
+        <h2>كيف يعمل نجمك؟ الأمر بسيط جداً!</h2>
+        <p>3 خطوات فقط تفصلك عن الشهرة التي تستحقها.</p>
+        <div class="how-it-works-steps">
+            <div class="step-card">
+                <div class="icon">1️⃣</div>
+                <h3>اختر خدمتك</h3>
+                <p>تصفح باقاتنا المتنوعة واختر الكمية والمنصة المناسبة لك.</p>
+            </div>
+            <div class="step-card">
+                <div class="icon">2️⃣</div>
+                <h3>أدخل التفاصيل</h3>
+                <p>ضع رابط حسابك أو المنشور، وقدم كلمة المرور إذا كانت الخدمة تتطلب ذلك.</p>
+            </div>
+            <div class="step-card">
+                <div class="icon">3️⃣</div>
+                <h3>شاهد النمو</h3>
+                <p>بعد إتمام الدفع، سيبدأ حسابك في النمو الفوري والمذهل!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 نجمك. جميع الحقوق محفوظة. | 
+        <a href="/privacy">سياسة الخصوصية</a> | 
+        <a href="/terms">شروط الخدمة</a> |
+        <a href="/contact">اتصل بنا</a>
+    </footer>
 
 </body>
 </html>
-
-
 
